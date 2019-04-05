@@ -36,3 +36,23 @@ I’ve interview parents who’ve beaten up their kids for getting involved in g
 * SMS provider integration
 
 
+## HACKATHON RULES 
+* Max Team size: 5
+* Each team will be provided with 10 free SMS for testing their system via TextLocal (or we may look up another provider for free access) In some cases, we may help you out with paid TextLocal account for SMS testing.
+* Sai, Neha (basically UX/UI)  will not be part of any team but you can run your ideas by them. 
+* UX/UI is not as important as functionality. Winning team will get special attention (and rework) for the UX / UI from Sai & Neha
+* You can plan your ideas, story, wireframes, build your assets (images, sketches etc.) but NO code until the hackathon starts. 
+* Choose any language or framework 
+* Deployment on AWS or Heroku
+* Team will commit code to github.com/joshsoftware/attendance with the branch that is the teams name! “master” will be later merged with the winning team code! 
+
+Be honest and have fun! 
+* No writing code before the contest begins! 
+* We shall be monitoring the frequency of commits to eliminate cheaters (who will be dealt with severely)
+* Do NOT merge another teams' code for your development! :D 
+
+## Winners
++ You will get to go to Nagpur to install this setup for a school and meet the teachers.
++ Travel and Stay will be taken care of by Josh! 
++ Amazon Gift Voucher of ₹ 3,000 for each participant of the team. 
++ We may present this to DigitalSeva (Government of India, who is our customer, for those who didn’t know) and get this propagated to all Rural schools in India! 
