@@ -1,0 +1,15 @@
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+%body
+  .container
+    %h2.center-aligned Login
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      %label{:for => "email"}
+        %b Email
+      %input{:name => "email", :placeholder => "Enter Username", :required => "", :type => "text"}/
+      %label{:for => "password"}
+        %b Password
+      %input{:name => "password", :placeholder => "Enter Password", :required => "", :type => "password"}/
+      %button{:type => "submit"} Login
