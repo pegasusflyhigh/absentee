@@ -4,4 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :recoverable, :rememberable, :validatable
   belongs_to :role
   belongs_to :school
+
+  validates_presence_of :name
 end
