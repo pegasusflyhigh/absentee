@@ -30,4 +30,5 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  student:
+    absent: '%{name} is not present in school today. Please contact %{support_number} if he has left for school'
