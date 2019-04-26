@@ -8,11 +8,9 @@
 School.create(name: 'Vidyamandir Vidyalaya', registration_number: 1)
 School.create(name: 'Bal Mandir Vidyalaya', registration_number: 2)
 
-Role.create(name: 'Admin')
-Role.create(name: 'Teacher')
-Role.create(name: 'Clerk')
-Role.create(name: 'Principal')
-
+['Admin', 'Teacher', 'Principal', 'Clerk'].each do |roll_name|
+  Role.create(name: roll_name)
+end
 User.create(name: 'Anjali Sharma', role: Role.find_by(name: 'Admin'))
 User.create(name: 'Rahul Jadhav', role: Role.find_by(name: 'Principal'))
 User.create(name: 'Raj Yadav', role: Role.find_by(name: 'Clerk'))
