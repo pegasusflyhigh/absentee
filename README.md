@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,7 +22,7 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+
 =======
 # Absentee
 A lightweight attendance management system for Rural Schools in India.
