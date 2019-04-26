@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 2019_04_26_192643) do
     t.boolean "is_present", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "updated_by_id"
     t.bigint "attendance_sheet_id"
     t.bigint "student_id"
+    t.bigint "updated_by_id"
     t.index ["attendance_sheet_id"], name: "index_attendance_entries_on_attendance_sheet_id"
     t.index ["student_id"], name: "index_attendance_entries_on_student_id"
     t.index ["updated_by_id"], name: "index_attendance_entries_on_updated_by_id"
@@ -80,8 +80,12 @@ ActiveRecord::Schema.define(version: 2019_04_26_192643) do
     t.string "name"
     t.string "mobile_number"
     t.boolean "active"
+    t.bigint "school_id"
+    t.bigint "role_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["role_id"], name: "index_users_on_role_id"
+    t.index ["school_id"], name: "index_users_on_school_id"
   end
 
   add_foreign_key "attendance_entries", "attendance_sheets"
@@ -90,4 +94,6 @@ ActiveRecord::Schema.define(version: 2019_04_26_192643) do
   add_foreign_key "attendance_sheets", "standards"
   add_foreign_key "standards", "schools"
   add_foreign_key "students", "standards"
+  add_foreign_key "users", "roles"
+  add_foreign_key "users", "schools"
 end
