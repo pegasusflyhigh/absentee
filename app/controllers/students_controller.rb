@@ -1,12 +1,13 @@
 class StudentsController < ApplicationController
 
-  before_action :load_school, :load_standard, :load_student
+  before_action :load_school, :load_standard
+  before_action :load_student, only: [:update]
 
   def index
     if params[:search_item].present?
-      @students = @standard.students.where(["LOWER(name) LIKE ?", "%#{params[:search_item].downcase}%"]).page(params[:page]).per(10)
+      @students = @standard.students.where(["LOWER(name) LIKE ?", "%#{params[:search_item].downcase}%"])
     else
-      @students = @standard.students.order(:name).page(params[:page]).per(10)
+      @students = @standard.students.order(:name)
     end
   end
 
