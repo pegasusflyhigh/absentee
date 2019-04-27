@@ -3,6 +3,9 @@
   = f.input :name, placeholder: 'Name'
   = f.input :email, placeholder: 'Email'
   = f.input :mobile_number, placeholder: 'Mobile Number'
-  .col-sm-offset-3
+  .col-sm-offset-4
+    = f.collection_select('role_id', Role.all, :id, :name)
+    = f.input :active, input_html: { checked: @user.active }
+  .col-sm-offset-4
     = f.button :submit, class: 'btn btn-primary'
     = link_to "Cancel", users_path, {class: 'btn btn-warning'}
