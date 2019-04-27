@@ -6,7 +6,7 @@
       Students
     .panel-body
       .row
-        - if is_admin?
+        - if admin?
           = link_to 'Add Student', new_student_path, :class => 'btn btn-success pull-right margin-bottom margin-right'
       .table-responsive
         %table.table.table-striped.table-bordered.table-hover
@@ -20,7 +20,7 @@
               %th Preferred Language
               %th Is Active
               %th
-              - if is_admin?
+              - if admin?
                 %th Action
           %tbody
             - @students.each.with_index do |student, index|
@@ -33,6 +33,6 @@
                 %td= student.preferred_language
                 %td= student.active.to_s.titleize
                 %td
-                - if is_admin?
+                - if admin?
                   %td
                     = link_to 'Edit', edit_student_path(student), class: "btn btn-danger btn-xs"
