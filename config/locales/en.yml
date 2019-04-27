@@ -31,8 +31,14 @@
 
 en:
   hello: "Hello world"
-created:
-  success: '%{model_name} Added successfully.'
-  failure: 'Unable to add %{model_name}'
-student:
-  absent: '%{name} is not present in school today. Please contact %{support_number} if he has left for school'
+  created:
+    success: '%{model_name} Added successfully.'
+    failure: 'Unable to add %{model_name}'
+  student:
+    absent: '%{name} is not present in school today. Please contact %{support_number} if he has left for school'
+  updated:
+    success: '%{model_name} updated successfully.'
+    failure: 'Unable to update %{model_name}.'
+  error:
+    invalid:      'Invalid %{attribute}'
+    unauthorised: 'Not authorised!'
