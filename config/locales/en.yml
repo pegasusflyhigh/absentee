@@ -31,3 +31,6 @@
 
 en:
   hello: "Hello world"
+created:
+  success: '%{model_name} Added successfully.'
+  failure: 'Unable to add %{model_name}'
