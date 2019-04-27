@@ -41,7 +41,7 @@ class StudentsController < ApplicationController
   end
 
   def load_standard
-    @standard = @current_school.standards.find params[:standard_id]
+    @standard = @current_school.standards.first
   end
 
   def load_student
