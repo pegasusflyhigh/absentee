@@ -19,8 +19,10 @@ class StudentsController < ApplicationController
     @student = @standard.students.build(student_params)
     if @student.save
       flash[:success] = I18n.t('created.success', model_name: 'Student')
+      redirect_to users_path
     else
       flash[:error] = I18n.t('created.failure', model_name: 'Student')
+      render 'new'
     end
   end
 
@@ -41,7 +43,8 @@ class StudentsController < ApplicationController
   end
 
   def load_standard
-    @standard = @current_school.standards.first
+    @standard = @current_school.standards.find params[:standard_id] if params[:standard_id]
+    @standard ||= @current_school.standards.first
   end
 
   def load_student
