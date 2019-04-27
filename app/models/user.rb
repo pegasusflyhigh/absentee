@@ -8,4 +8,8 @@ class User < ApplicationRecord
   validates_presence_of :name
   validates_format_of :mobile_number, with:  /[0-9]{10}/ , message: I18n.t('error.invalid', attribute: 'mobile number')
 
+  def is_admin?
+    true
+  end
+
 end
