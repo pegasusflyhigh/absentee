@@ -10,7 +10,7 @@
         %li
           = link_to 'User', users_path if current_user.admin? || current_user.principal?
         %li
-          = link_to 'Attendance', attendance_sheets_path
+          = link_to 'Attendance', attendance_sheet_path(1)
         %li.nav-link
           %a{:href => "#"}
             %span.fa.fa-user
