@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user, :load_user, :load_school
+  before_action :authenticate_user!, :load_user, :load_school
 
   def new
     @school = current_user.school.new
@@ -65,5 +65,4 @@ class UsersController < ApplicationController
       redirect_to attendance_path
     end
   end
-
 end
