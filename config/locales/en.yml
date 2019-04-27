@@ -30,5 +30,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  student:
-    absent: '%{name} is not present in school today. Please contact %{support_number} if he has left for school'
+  hello: "Hello world"
+created:
+  success: '%{model_name} Added successfully.'
+  failure: 'Unable to add %{model_name}'
+student:
+  absent: '%{name} is not present in school today. Please contact %{support_number} if he has left for school'
