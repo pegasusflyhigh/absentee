@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, :load_user, :load_school
+  before_action :authenticate_user!, :load_school
+  before_action :load_user, only: [:update]
 
   def new
     @school = current_user.school.new
@@ -18,7 +19,7 @@ class UsersController < ApplicationController
       )
     if @user.valid?
       @user.save
-      flash[:success] = "User record added!!"
+      flash[:success] = I18n.t('created.success', model_name: 'User')
     else
       flash.now[:error]=  @user.errors.messages
       render :new
@@ -26,21 +27,17 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = @school.users.order(:created_at).page(params[:page]).per(10)
+    @users = @school.users.order(:created_at)
   end
 
   def user_params
-    params.require(:user).permit(:id, :name, :mobile_number, :role_id, :is_active, :email, :password)
+    params.require(:user).permit(:id, :name, :mobile_number, :role_id, :active, :email, :password)
   end
 
   def update
-    page = 1
-    if !params[:page]
-      params[:page] = page
-    end
     if @user.update(user_params)
-      flash[:success] = "User updated successfully!!"
-      redirect_to school_users_path(@school,:page=>params[:page])
+      flash[:success] = I18n.t('updated.success', model_name: 'User')
+      redirect_to school_users_path(@school)
     else
       flash.now[:error]= @user.errors.messages
     end
@@ -49,11 +46,11 @@ class UsersController < ApplicationController
   private
 
   def load_user
-    @user = User.find(params[:id])
+    @user = User.find params[:id]
   end
 
   def load_school
-    @school = School.find(params[:school_id])
+    @school = current_user.school
   end
 
   def require_permission
@@ -61,7 +58,7 @@ class UsersController < ApplicationController
     unless current_user.in?(School.find(params[:school_id])
                                    .users
                                    .where(role: admin_role))
-      flash[:error] = "You are not authorized to access it!!"
+      flash[:error] = I18n.t('error.unauthorised')
       redirect_to attendance_path
     end
   end
