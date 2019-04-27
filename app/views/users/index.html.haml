@@ -6,7 +6,7 @@
       Users
     .panel-body
       .row
-        - if is_admin?
+        - if admin?
           = link_to 'Add User', new_user_path, :class => 'btn btn-success pull-right margin-bottom margin-right'
       .table-responsive
         %table.table.table-striped.table-bordered.table-hover
@@ -19,7 +19,7 @@
               %th Role
               %th Is Active
               %th
-              - if is_admin?
+              - if admin?
                 %th Action
           %tbody
             - @users.each.with_index do |user, index|
@@ -31,6 +31,6 @@
                 %td= user.role.name 
                 %td= user.active.to_s.titleize 
                 %td 
-                - if is_admin?
+                - if admin?
                   %td
                     = link_to 'Edit', edit_user_path(user), class: "btn btn-danger btn-xs"
