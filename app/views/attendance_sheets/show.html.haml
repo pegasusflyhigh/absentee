@@ -13,7 +13,7 @@
               %th Name
               %th Mark Attendance
             - @students.each do |student|
-              = f.simple_fields_for :attendance_entries do |a|
+              = f.simple_fields_for :attendance_entries, student.attendance_entries.first do |a|
                 %tr
                   %td= student.roll_number
                   %td= student.name
