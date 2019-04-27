@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_26_195202) do
+ActiveRecord::Schema.define(version: 2019_04_27_053522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 2019_04_26_195202) do
     t.boolean "is_present", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "updated_by_id"
     t.bigint "attendance_sheet_id"
     t.bigint "student_id"
-    t.bigint "updated_by_id"
     t.index ["attendance_sheet_id"], name: "index_attendance_entries_on_attendance_sheet_id"
     t.index ["student_id"], name: "index_attendance_entries_on_student_id"
     t.index ["updated_by_id"], name: "index_attendance_entries_on_updated_by_id"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2019_04_26_195202) do
     t.string "name"
     t.string "primary_number"
     t.string "secondary_number"
-    t.string "preferred_language"
+    t.string "preferred_language", default: "English"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "standard_id"
