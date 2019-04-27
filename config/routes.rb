@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   resources :standards, only: [:new, :create, :index, :edit]
   resources :students, only: [:new, :create, :index, :edit]
   resources :attendance_entries, only: [:index]
+  post 'messages/received', to: 'messages#received'
 end
