@@ -1,3 +1,3 @@
 class UsersController < ApplicationController
-  before_action :authentiicate_user!
+  before_action :authenticate_user!
 end

@@ -1,15 +1,32 @@
-%html
+!!!
+%html{:lang => "en"}
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
-%body
-  .container
-    %h2.center-aligned Login
-    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-      %label{:for => "email"}
-        %b Email
-      %input{:name => "email", :placeholder => "Enter Username", :required => "", :type => "text"}/
-      %label{:for => "password"}
-        %b Password
-      %input{:name => "password", :placeholder => "Enter Password", :required => "", :type => "password"}/
-      %button{:type => "submit"} Login
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no", :name => "viewport"}/
+    / Fonts and icons
+    %link{:href => "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css", :rel => "stylesheet"}/
+    / CSS Files
+    %link{:href => "../assets/material/material-dashboard.css?v=2.1.1", :rel => "stylesheet"}/
+  %body
+    .wrapper
+      .col-lg-6.align-center
+        .card
+          .card-header.card-header-primary
+            %h4.card-title Login
+          .card-body
+            = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+              .row
+                .col-md-12
+                  .form-group
+                    %label.bmd-label-floating{:for => "email"} Email address
+                    %input.form-control{:name => "email", :type => "email"}/
+              .row
+                .col-md-12
+                  .form-group
+                    %label.bmd-label-floating{:for => "password"} Password
+                    %input.form-control{:name => "password", :type => "password"}/
+              %button.btn.btn-primary.pull-right{:type => "submit"} Login
+              .clearfix
