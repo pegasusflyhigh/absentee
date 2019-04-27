@@ -36,3 +36,6 @@ created:
   failure: 'Unable to add %{model_name}'
 student:
   absent: '%{name} is not present in school today. Please contact %{support_number} if he has left for school'
+updated:
+  success: '%{model_name} updated successfully.'
+  failure: 'Unable to update %{model_name}.'
