@@ -1,0 +1,36 @@
+.row
+  %h2 Users List
+.row.margin-top
+  .panel.panel-primary
+    .panel-heading
+      Users
+    .panel-body
+      .row
+        - if is_admin?
+          = link_to 'Add User', new_user_path, :class => 'btn btn-success pull-right margin-bottom margin-right'
+      .table-responsive
+        %table.table.table-striped.table-bordered.table-hover
+          %thead
+            %tr
+              %th #
+              %th Name
+              %th Email
+              %th Mobile
+              %th Role
+              %th Is Active
+              %th
+              - if is_admin?
+                %th Action
+          %tbody
+            - @users.each.with_index do |user, index|
+              %tr
+                %td= index + 1
+                %td= user.name
+                %td= user.email 
+                %td= user.mobile_number 
+                %td= user.role.name 
+                %td= user.active.to_s.titleize 
+                %td 
+                - if is_admin?
+                  %td
+                    = link_to 'Edit', edit_user_path(user), class: "btn btn-danger btn-xs"
