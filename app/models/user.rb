@@ -23,4 +23,8 @@ class User < ApplicationRecord
   def teacher?
     self.role.name == 'Teacher'
   end
+
+  def can_take_attendance(standard)
+    clerk? || (standard.class_teacher == self)
+  end
 end
