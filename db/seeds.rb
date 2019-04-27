@@ -12,7 +12,7 @@ ROLES = ['Admin', 'Teacher', 'Principal', 'Clerk']
 
 ROLES.each do |role_name|
   role = Role.find_or_create_by(name: role_name)
-  user = User.find_or_initialize_by(name: role, role: role, mobile_number: rand(10 ** 10), school: school, email: "#{role_name}@joshsoftware.com")
+  user = User.find_or_initialize_by(name: role_name, role: role, mobile_number: rand(10 ** 10), school: school, email: "#{role_name}@joshsoftware.com")
   user.password = '123456'
   user.save!
 end
