@@ -1,0 +1,11 @@
+= simple_form_for @user, :url => url, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: { check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, boolean: :horizontal_boolean } do |f|                                                                                                                          
+  = f.error_notification
+  = f.input :name, placeholder: 'Name'
+  = f.input :email, placeholder: 'Email'
+  = f.input :mobile_number, placeholder: 'Mobile Number'
+  .col-sm-offset-4
+    = f.collection_select('role_id', Role.all, :id, :name)
+    = f.input :active, input_html: { checked: @user.active }
+  .col-sm-offset-4
+    = f.button :submit, class: 'btn btn-primary'
+    = link_to "Cancel", users_path, {class: 'btn btn-warning'}

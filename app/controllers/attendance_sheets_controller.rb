@@ -13,7 +13,6 @@ class AttendanceSheetsController < ApplicationController
   def create_attendance_entries
     attendance_entries_by_user = params[:attendance_sheet][:attendance_entries_attributes].values
     attendance_sheet = AttendanceSheet.find(params[:id])
-
     attendance_entries_by_user.each do |entry|
       status = false if entry[:is_present] == "0"
       attendance_sheet.attendance_entries.update_all(is_present: status, student_id: entry[:student_id]) 

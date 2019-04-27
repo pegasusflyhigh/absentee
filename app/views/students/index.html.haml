@@ -1,0 +1,38 @@
+.row
+  %h2 Students List
+.row.margin-top
+  .panel.panel-primary
+    .panel-heading
+      Students
+    .panel-body
+      .row
+        - if admin?
+          = link_to 'Add Student', new_student_path, :class => 'btn btn-success pull-right margin-bottom margin-right'
+      .table-responsive
+        %table.table.table-striped.table-bordered.table-hover
+          %thead
+            %tr
+              %th #
+              %th Roll Number
+              %th Name
+              %th Primary Number
+              %th Secondary Number
+              %th Preferred Language
+              %th Is Active
+              %th
+              - if admin?
+                %th Action
+          %tbody
+            - @students.each.with_index do |student, index|
+              %tr
+                %td= index + 1
+                %td= student.roll_number
+                %td= student.name
+                %td= student.primary_number
+                %td= student.secondary_number
+                %td= student.preferred_language
+                %td= student.active.to_s.titleize
+                %td
+                - if admin?
+                  %td
+                    = link_to 'Edit', edit_student_path(student), class: "btn btn-danger btn-xs"

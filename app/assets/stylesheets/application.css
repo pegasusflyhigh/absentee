@@ -16,7 +16,9 @@
  *= require_tree .
  *= require_self
  */
-
+.navbar-default {
+    background-color: #b3aeae;
+}
 .margin-top{margin-top:20px;}
 .margin-right{
   margin-right: 16px;

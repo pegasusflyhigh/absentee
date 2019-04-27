@@ -8,7 +8,7 @@ class MessageParser
   end
 
   def parse
-    standard_name, absentees_roll_numbers = @message.split(';') if @message
+    short_code, standard_name, absentees_roll_numbers = @message.split(':') if @message
     absentees_roll_numbers = absentees_roll_numbers.split(',').collect(&:to_i) if absentees_roll_numbers
     [standard_name, absentees_roll_numbers]
   end

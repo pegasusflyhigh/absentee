@@ -1,0 +1,11 @@
+= simple_form_for @student, :url => url, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: { check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, boolean: :horizontal_boolean } do |f|
+  = f.error_notification
+  = f.input :roll_number, placeholder: 'Roll Number'
+  = f.input :name, placeholder: 'Name'
+  = f.input :primary_number, placeholder: 'Primary Number'
+  = f.input :secondary_number, placeholder: 'Secondary Number'
+  = f.input :preferred_language, as: :string
+  = f.input :active, placeholder: 'Active', type: 'checkbox'
+  .col-sm-offset-3
+    = f.button :submit, class: 'btn btn-primary'
+    = link_to "Cancel", students_path, {class: 'btn btn-warning'}
