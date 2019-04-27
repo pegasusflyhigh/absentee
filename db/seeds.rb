@@ -1,18 +1,20 @@
 # This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+# The data can then be loaded with the rails db:seed command (or find_or_created alongside the database with db:setup).
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-School.create(name: 'Vidyamandir Vidyalaya', registration_number: 1)
-School.create(name: 'Bal Mandir Vidyalaya', registration_number: 2)
+#   movies = Movie.find_or_create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   Character.find_or_create(name: 'Luke', movie: movies.first)
+school = School.find_or_create_by(name: 'Vidyamandir Vidyalaya', registration_number: 1)
+School.find_or_create_by(name: 'Bal Mandir Vidyalaya', registration_number: 2)
 
-['Admin', 'Teacher', 'Principal', 'Clerk'].each do |roll_name|
-  Role.create(name: roll_name)
+ROLES = ['Admin', 'Teacher', 'Principal', 'Clerk']
+
+ROLES.each do |role_name|
+  role = Role.find_or_create_by(name: role_name)
+  user = User.find_or_initialize_by(name: role, role: role, mobile_number: rand(10 ** 10), school: school, email: "#{role_name}@joshsoftware.com")
+  user.password = '123456'
+  user.save!
 end
-User.create(name: 'Anjali Sharma', role: Role.find_by(name: 'Admin'))
-User.create(name: 'Rahul Jadhav', role: Role.find_by(name: 'Principal'))
-User.create(name: 'Raj Yadav', role: Role.find_by(name: 'Clerk'))
 
 p 'Seed completed!'

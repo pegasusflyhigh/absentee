@@ -18,8 +18,7 @@ class UsersController < ApplicationController
         school_id: current_user.school_id,
         password: Devise.friendly_token.first(8)
       )
-    if @user.valid?
-      @user.save
+    if @user.save
       flash[:success] = I18n.t('created.success', model_name: 'User')
     else
       flash.now[:error]=  @user.errors.messages
