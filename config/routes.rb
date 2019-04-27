@@ -13,4 +13,9 @@ Rails.application.routes.draw do
       root :to => 'users/sessions#new'
     end
   end
+
+  resources :users, only: [:new, :create, :index, :edit]
+  resources :standards, only: [:new, :create, :index, :edit]
+  resources :students, only: [:new, :create, :index, :edit]
+  resources :attendance_entries, only: [:index]
 end

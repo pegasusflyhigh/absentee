@@ -51,7 +51,7 @@
         %nav.navbar.navbar-expand-lg.navbar-transparent.navbar-absolute.fixed-top
           .container-fluid
             .navbar-wrapper
-              %a.navbar-brand{:href => "#pablo"} Classes
+              %a.navbar-brand{:href => "#pablo"} Users
             %button.navbar-toggler{"aria-controls" => "navigation-index", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-toggle" => "collapse", :type => "button"}
               %span.sr-only Toggle navigation
               %span.navbar-toggler-icon.icon-bar
@@ -79,25 +79,42 @@
             .col
               .card
                 .card-header.card-header-primary
-                  %h4.card-title Add class
+                  %h4.card-title Add users
                   %p.card-category
                 .card-body
                   %form
                     .row
                       .col-md-6
                         .form-group
-                          %label.bmd-label-floating Grade
-                          %input.form-control{:name => 'grade', :type => "text"}/
+                          %label.bmd-label-floating Email
+                          %input.form-control{:name => 'email', :type => "email"}/
                       .col-md-6
                         .form-group
-                          %label.bmd-label-floating Section
-                          %input.form-control{:name => 'section', :type => "text"}/
+                          %label.bmd-label-floating Name
+                          %input.form-control{:name => 'name', :type => "text"}/
+                    .row
+                      .col-md-4
+                        .form-group
+                          %label.bmd-label-floating Mobile Number
+                          %input.form-control{:name => 'mobile_number', :type => "integer"}/
+                      .col-md-4
+                        .form-group
+                          %select#class.form-control{:name => 'role'}
+                            %option Admin
+                            %option Teacher
+                            %option Clerk
+                      .col-md-4
+                        .form-check
+                          %label{:for => 'is_active'} Is Active
+                          %input.form-check-input{:name => 'is_active', :checked => "checked", :type => "checkbox", :value => ""}/
+                          %span.form-check-sign
+                            %span.check
                     %button.btn.btn-primary.pull-right{:type => "submit"} Add
                     .clearfix
             .col
               .card
                 .card-header.card-header-primary
-                  %h4.card-title Classes
+                  %h4.card-title Users
                   %p.card-category
                 .card-body
                   .table-responsive
@@ -106,9 +123,13 @@
                         %th
                           Sr. No.
                         %th
-                          Grade
+                          Name
                         %th
-                          Section
+                          Email
+                        %th
+                          Mobile Number
+                        %th
+                          Is Active
                       %tbody
                         - 5.times do |i|
                           %tr
@@ -118,6 +139,10 @@
                               5
                             %td
                               A
+                            %td
+                              12345
+                            %td
+                              false
     / Core JS Files
     %script{:src => "../assets/material/jquery.min.js"}
     %script{:src => "../assets/material/popper.min.js"}
