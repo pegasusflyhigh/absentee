@@ -7,14 +7,14 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
       user ||= User.new # guest user (not logged in)
-      if user.is_admin?
+      if user.admin?
         can :manage, :all
-      elsif user.is_clerk? 
+      elsif user.clerk? 
         can :manage , AttendanceSheet
         can :read, :all
-      elsif user.is_principal?
+      elsif user.principal?
         can :read, :all
-      elsif user.is_teacher?
+      elsif user.teacher?
         can :manage, AttendanceSheet, standard_id: Standard.where(user_id: user.id).id
         can :read, :all
       end

@@ -16,20 +16,20 @@ module ApplicationHelper
     number_to_percentage(result, precision: 2)
   end
 
-  def is_admin?
-    current_user.is_admin?
+  def admin?
+    current_user.admin?
   end
 
-  def is_clerk?
-    current_user.is_clerk?
+  def clerk?
+    current_user.clerk?
   end
 
-  def is_principal?
-    current_user.is_principal?
+  def principal?
+    current_user.principal?
   end
 
-  def is_teacher?
-    current_user.is_teacher?
+  def teacher?
+    current_user.teacher?
   end
 
 end
