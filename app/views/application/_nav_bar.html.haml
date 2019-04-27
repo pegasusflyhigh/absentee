@@ -4,11 +4,11 @@
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         %li
-          = link_to 'Class', standards_path
+          = link_to 'Class', standards_path if current_user.admin? || current_user.principal?
         %li
-          = link_to 'Student', students_path
+          = link_to 'Student', students_path if current_user.admin? || current_user.principal?
         %li
-          = link_to 'User', users_path
+          = link_to 'User', users_path if current_user.admin? || current_user.principal?
         %li
           = link_to 'Attendance', attendance_sheets_path
         %li.nav-link
