@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, :load_school
-  before_action :load_user, only: [:update]
+  before_action :load_user, only: [:update, :edit]
 
   def new
-    @school = current_user.school.new
+    @school = current_user.school
     @user = @school.users.build
   end
 
@@ -15,10 +15,10 @@ class UsersController < ApplicationController
         mobile_number: user_params[:mobile_number],
         active: true,
         role: teacher_role,
+        school_id: current_user.school_id,
         password: Devise.friendly_token.first(8)
       )
-    if @user.valid?
-      @user.save
+    if @user.save
       flash[:success] = I18n.t('created.success', model_name: 'User')
     else
       flash.now[:error]=  @user.errors.messages
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       flash[:success] = I18n.t('updated.success', model_name: 'User')
-      redirect_to school_users_path(@school)
+      redirect_to users_path
     else
       flash.now[:error]= @user.errors.messages
     end
