@@ -19,4 +19,8 @@ class User < ApplicationRecord
   def is_principal?
     self.role.name == 'Principal'
   end
+
+  def is_teacher?
+    self.role.name == 'Teacher'
+  end
 end

@@ -28,5 +28,8 @@ module ApplicationHelper
     current_user.is_principal?
   end
 
+  def is_teacher?
+    current_user.is_teacher?
+  end
 
 end
