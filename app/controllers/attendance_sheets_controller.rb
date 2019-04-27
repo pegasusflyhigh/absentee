@@ -1,5 +1,6 @@
 class AttendanceSheetsController < ApplicationController
-  def index 
+  
+  def show
     @attendance_sheet = AttendanceSheet.where(
       standard_id: 1, date: Date.today
     ).first
