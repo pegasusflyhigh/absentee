@@ -1,0 +1,24 @@
+.container-fluid
+  = simple_form_for(@attendance_sheet, url: create_attendance_entries_attendance_sheet_path(@attendance_sheet.id)) do |f|
+    .form-inputs
+      .row
+        .col-md-4
+          %label Select a date
+          %input{id: 'attendance_date',name: 'attendance_date', value: Date.today, class: 'form-control', type: 'date'}
+        #attendance_table
+          %br
+          %table.table
+            %tr
+              %th Roll Number
+              %th Name
+              %th Mark Attendance
+            - @students.each do |student|
+              = f.simple_fields_for :attendance_entries do |a|
+                %tr
+                  %td= student.roll_number
+                  %td= student.name
+                  %td= a.input :is_present, label: false, as: :boolean, input_html: {checked: "checked", "data-style"=>"round", class: 'is_present'}
+                  %td= a.hidden_field :student_id, value: student.id
+    #submit_button  
+      .form-actions
+        = f.submit 'Mark Attendance', class: 'btn btn-large btn-success'
