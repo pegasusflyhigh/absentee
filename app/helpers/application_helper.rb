@@ -19,4 +19,14 @@ module ApplicationHelper
   def is_admin?
     current_user.is_admin?
   end
+
+  def is_clerk?
+    current_user.is_clerk?
+  end
+
+  def is_principal?
+    current_user.is_principal?
+  end
+
+
 end
