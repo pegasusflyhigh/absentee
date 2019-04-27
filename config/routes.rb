@@ -19,4 +19,11 @@ Rails.application.routes.draw do
   resources :students, only: [:new, :create, :index, :edit]
   resources :attendance_entries, only: [:index]
   post 'messages/received', to: 'messages#received'
+
+  resources :attendance_sheets, only: [:index] do
+    member do
+      patch 'create_attendance_entries'
+      patch 'get_attendances'
+    end
+  end
 end
