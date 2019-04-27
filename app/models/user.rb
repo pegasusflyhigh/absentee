@@ -6,6 +6,6 @@ class User < ApplicationRecord
   belongs_to :school
 
   validates_presence_of :name
-  validates_format_of :mobile_number, :with =>  /\d[0-9]\)*\z/ , :message => "Mobile number not valid!"
+  validates_format_of :mobile_number, with:  /[0-9]{10}/ , message: I18n.t('error.invalid', attribute: 'mobile number')
 
 end
