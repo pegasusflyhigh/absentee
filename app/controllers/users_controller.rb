@@ -8,13 +8,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    teacher_role = Role.find_by(name: 'Teacher')
     @user = @school.users.build(
         name: user_params[:name],
         email: user_params[:email],
         mobile_number: user_params[:mobile_number],
         active: true,
-        role: teacher_role,
+        role: Role.find(user_params[:role_id]),
         school_id: current_user.school_id,
         password: Devise.friendly_token.first(8)
       )
