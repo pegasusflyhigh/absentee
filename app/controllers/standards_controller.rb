@@ -1,5 +1,5 @@
 class StandardsController < ApplicationController
-  before_action :authenticate_user
+  before_action :authenticate_user!
 
   def new
     @school = current_user.school
@@ -16,7 +16,7 @@ class StandardsController < ApplicationController
   end
 
   def index
-    @standards = @school.standards
+    @standards = @school&.standards
   end
 
   def permitted_params
