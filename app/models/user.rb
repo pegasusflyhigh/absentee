@@ -8,4 +8,8 @@ class User < ApplicationRecord
   validates_presence_of :name
   validates_format_of :mobile_number, :with =>  /\d[0-9]\)*\z/ , :message => "Mobile number not valid!"
 
+  def is_admin?
+    true
+  end
+
 end
